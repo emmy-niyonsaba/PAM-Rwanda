@@ -1,26 +1,53 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useAuthStore, useSessionStore } from '../store/store';
+import { sessionService, authService } from '../services/api';
+import { useAuthStore } from '../store/store';
 
 export default function DashboardPage() {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuthStore();
-  const { sessions, userProgress, loading, fetchSessions, fetchUserProgress } = useSessionStore();
+  const [sessions, setSessions] = useState([]);
+  const [progress, setProgress] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [userProfile, setUserProfile] = useState(null);
 
   useEffect(() => {
     if (!isAuthenticated) {
       navigate('/login');
       return;
     }
-    // Fetch dashboard data from store
-    fetchSessions();
-    fetchUserProgress();
-  }, [isAuthenticated, navigate, fetchSessions, fetchUserProgress]);
+    fetchDashboardData();
+  }, [isAuthenticated, navigate]);
 
-  const completedCount = userProgress.filter(p => p.completed).length;
-  const completionPercentage = Math.round((completedCount / sessions.length) * 100) || 0;
+  const fetchDashboardData = async () => {
+    try {
+      setLoading(true);
+      const [sessionsRes, progressRes, profileRes] = await Promise.all([
+        sessionService.getSessions(),
+        authService.getProfile(),
+      ]);
+      setSessions(sessionsRes.data.sessions || []);
+      setUserProfile(profileRes.data);
+    } catch (error) {
+      console.error('Error fetching dashboard data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCompleteSession = async (sessionId) => {
+    try {
+      const score = prompt('Enter your quiz score (0-100):');
+      if (score !== null) {
+        await sessionService.completeSession(sessionId, { quizScore: parseInt(score) });
+        fetchDashboardData();
+      }
+    } catch (error) {
+      console.error('Error completing session:', error);
+    }
+  };
 
   return (
     <>
@@ -38,17 +65,17 @@ export default function DashboardPage() {
               <div className="card mb-8 bg-gradient-to-r from-primary-50 to-accent-50">
                 <div className="p-8">
                   <h1 className="text-4xl font-bold text-primary-600 mb-2">
-                    Welcome back, {user?.firstName}! 👋
+                    Welcome back, {userProfile?.firstName}! 👋
                   </h1>
                   <p className="text-neutral-600 mb-4">
-                    {user?.isMember ? (
+                    {userProfile?.isMember ? (
                       <span className="badge-primary">✓ Verified PAM Member</span>
                     ) : (
                       <span className="badge-accent">Complete sessions to become a member</span>
                     )}
                   </p>
                   <p className="text-neutral-600">
-                    📍 {user?.country} | 📧 {user?.email}
+                    📍 {userProfile?.country} | 📧 {userProfile?.email}
                   </p>
                 </div>
               </div>
