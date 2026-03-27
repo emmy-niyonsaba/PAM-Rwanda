@@ -5,7 +5,6 @@ import Footer from '../components/Footer';
 export default function AboutPage() {
   return (
     <>
-      <Navbar />
 
       <div className="bg-neutral-50">
         {/* Header */}
