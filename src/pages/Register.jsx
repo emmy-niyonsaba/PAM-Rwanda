@@ -40,7 +40,6 @@ export default function RegisterPage() {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 py-12 px-4">
         <div className="max-w-2xl mx-auto">
           <div className="card">
