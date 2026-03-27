@@ -15,13 +15,14 @@ function Navbar() {
 
   const navLinks = [
     { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
     { label: 'Events', path: '/events' },
     { label: 'Learning', path: '/dashboard' },
     { label: 'History', path: '/history' },
     { label: 'Heroes', path: '/panafricanists' },
     { label: 'Opportunities', path: '/opportunities' },
     { label: 'Stories', path: '/testimonies' },
-    { label: 'About', path: '/about' },
+    
   ];
 
   return (
@@ -74,7 +75,7 @@ function Navbar() {
               </div>
             ) : (
               <>
-                <Link
+                <Link 
                   to="/login"
                   className="px-4 py-2 text-sm font-medium text-blue-600 border-2 border-blue-600 rounded-lg hover:bg-blue-50 transition"
                 >
@@ -82,7 +83,7 @@ function Navbar() {
                 </Link>
                 <Link
                   to="/register"
-                  className="btn-primary"
+                  className="btn-primary hover:scale-x-[1.1] transition-transform hover:scale-y-[1.1]"
                 >
                   Register
                 </Link>
