@@ -34,7 +34,6 @@ export default function LoginPage() {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center py-12 px-4">
         <div className="w-full max-w-md card">
           <div className="card-header text-center">
