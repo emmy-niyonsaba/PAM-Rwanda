@@ -16,11 +16,11 @@ function Navbar() {
   const navLinks = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
-    { label: 'Events', path: '/events' },
-    { label: 'Learning', path: '/dashboard' },
+    { label: 'PAM Sessions', path: '/dashboard' },
     { label: 'History', path: '/history' },
     { label: 'Heroes', path: '/panafricanists' },
     { label: 'Opportunities', path: '/opportunities' },
+    { label: 'Events', path: '/events' },
     { label: 'Stories', path: '/testimonies' },
     
   ];
