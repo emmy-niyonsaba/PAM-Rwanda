@@ -233,6 +233,7 @@ export const useChatStore = create((set, get) => ({
   loading: false,
   error: null,
 
+// the meassage comme tn 
   setMessages: (messages) => set({ messages }),
   addMessage: (message) => {
     const current = get().messages;
