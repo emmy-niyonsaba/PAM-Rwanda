@@ -7,7 +7,6 @@ import TestimonyCard from '../components/TestimonyCard';
 import Footer from '../components/Footer';
 import { eventService, testimonyService } from '../services/api';
 import { useAuthStore } from '../store/store';
-
 export default function HomePage() {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuthStore();
@@ -38,6 +37,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
+      
       <HeroSection
         title="Unite Africa. Empower Africans."
         subtitle="Join millions of Africans and diaspora members building a stronger, more prosperous continent through education, events, and community."
