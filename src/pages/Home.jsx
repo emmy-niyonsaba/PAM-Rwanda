@@ -1,4 +1,4 @@
-
+import { photo2 } from '../../public/images';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
@@ -37,7 +37,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      
+
       <HeroSection
         title="Unite Africa. Empower Africans."
         subtitle="Join millions of Africans and diaspora members building a stronger, more prosperous continent through education, events, and community."
@@ -45,40 +45,136 @@ export default function HomePage() {
         ctaLink={isAuthenticated ? '/dashboard' : '/register'}
       />
 
-      {/* Featured Events */}
-      <section className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-header">🎉 Upcoming Events</h2>
-          <p className="section-subheader">Connect with Africans worldwide through our dynamic events.</p>
-          
-          {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="skeleton h-64"></div>
-              ))}
+        <section className=" flex grow overflow-x-auto gap-6 bg-white p-6 border-t-4 border-black [&>*]:shrink-0">
+        
+          <div className="  max-w-sm overflow-hidden rounded-xl bg-white shadow-lg transition-hover hover:shadow-2xl border border-gray-100">
+            <img
+              className="h-48 w-full object-cover"
+              src={photo2}
+              alt="Event cover"
+            />
+            <div className="p-5">
+              <h1 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
+                Event Title
+              </h1>
+
+              <div className="flex items-center text-sm text-gray-600">
+                <span className="font-medium">Date:</span>
+                <span className="ml-2 italic">December 12, 2025</span>
+              </div>
+              <button className="mt-4 w-full rounded-lg bg-red-500 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-700">
+                View Details
+              </button>
             </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-              {events.length > 0 ? (
-                events.map((event) => <EventCard key={event.id} event={event} />)
-              ) : (
-                <p className="text-neutral-600">No upcoming events at the moment.</p>
-              )}
+          </div>
+          <div className="max-w-sm overflow-hidden rounded-xl bg-white shadow-lg transition-hover hover:shadow-2xl border border-gray-100">
+            <img
+              className="h-48 w-full object-cover"
+              src={photo2}
+              alt="Event cover"
+            />
+            <div className="p-5">
+              <h1 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
+                Event Title
+              </h1>
+
+              <div className="flex items-center text-sm text-gray-600">
+                <span className="font-medium">Date:</span>
+                <span className="ml-2 italic">December 12, 2025</span>
+              </div>
+              <button className="mt-4 w-full rounded-lg bg-red-500 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-700">
+                View Details
+              </button>
             </div>
-          )}
-          
-          <button onClick={() => navigate('/events')} className="w-full btn-primary py-3 text-lg">
-            View All Events →
-          </button>
-        </div>
-      </section>
+          </div>
+          <div className="max-w-sm overflow-hidden rounded-xl bg-white shadow-lg transition-hover hover:shadow-2xl border border-gray-100">
+            <img
+              className="h-48 w-full object-cover"
+              src={photo2}
+              alt="Event cover"
+            />
+            <div className="p-5">
+              <h1 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
+                Event Title
+              </h1>
+
+              <div className="flex items-center text-sm text-gray-600">
+                <span className="font-medium">Date:</span>
+                <span className="ml-2 italic">December 12, 2025</span>
+              </div>
+              <button className="mt-4 w-full rounded-lg bg-red-500 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-700">
+                View Details
+              </button>
+            </div>
+          </div>
+          <div className="max-w-sm overflow-hidden rounded-xl bg-white shadow-lg transition-hover hover:shadow-2xl border border-gray-100">
+            <img
+              className="h-48 w-full object-cover"
+              src={photo2}
+              alt="Event cover"
+            />
+            <div className="p-5">
+              <h1 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
+                Event Title
+              </h1>
+
+              <div className="flex items-center text-sm text-gray-600">
+                <span className="font-medium">Date:</span>
+                <span className="ml-2 italic">December 12, 2025</span>
+              </div>
+              <button className="mt-4 w-full rounded-lg bg-red-500 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-700">
+                View Details
+              </button>
+            </div>
+          </div>
+          <div className="max-w-sm overflow-hidden rounded-xl bg-white shadow-lg transition-hover hover:shadow-2xl border border-gray-100">
+            <img
+              className="h-48 w-full object-cover"
+              src={photo2}
+              alt="Event cover"
+            />
+            <div className="p-5">
+              <h1 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
+                Event Title
+              </h1>
+
+              <div className="flex items-center text-sm text-gray-600">
+                <span className="font-medium">Date:</span>
+                <span className="ml-2 italic">December 12, 2025</span>
+              </div>
+              <button className="mt-4 w-full rounded-lg bg-red-500 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-700">
+                View Details
+              </button>
+            </div>
+          </div>
+          <div className="max-w-sm overflow-hidden rounded-xl bg-white shadow-lg transition-hover hover:shadow-2xl border border-gray-100">
+            <img
+              className="h-48 w-full object-cover"
+              src={photo2}
+              alt="Event cover"
+            />
+            <div className="p-5">
+              <h1 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
+                Event Title
+              </h1>
+
+              <div className="flex items-center text-sm text-gray-600">
+                <span className="font-medium">Date:</span>
+                <span className="ml-2 italic">December 12, 2025</span>
+              </div>
+              <button className="mt-4 w-full rounded-lg bg-red-500 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-700">
+                View Details
+              </button>
+            </div>
+          </div>
+        </section>
 
       {/* Learning Path */}
       <section className="py-16 bg-gradient-to-r from-primary-50 to-accent-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-header">🎓 Membership Path</h2>
           <p className="section-subheader">Become a verified PAM member through our structured learning program.</p>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { step: '1', title: 'Register', desc: 'Create your PAM account' },
@@ -111,7 +207,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-header">💬 Community Testimonies</h2>
           <p className="section-subheader">Hear from members about their PAM journey.</p>
-          
+
           {loading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3].map((i) => (
